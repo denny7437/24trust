@@ -48,7 +48,7 @@ export default function ConsentPage() {
         </li>
         <li>
           <strong>Лица, которым Оператор поручает обработку:</strong>{' '}
-          <Fill text="https://timeweb.cloud" />;{' '}.
+          <Fill text="https://timeweb.cloud" />.
         </li>
         <li>
           <strong>Срок действия:</strong> до достижения цели обработки, но не более 3 лет с даты отправки заявки или
