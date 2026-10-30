@@ -12,16 +12,17 @@ export const dynamic = 'force-dynamic';
 const MAX_BODY = 20_000;
 
 /**
- * IP посетителя берём из заголовков обратного прокси (nginx: X-Real-IP / X-Forwarded-For).
- * Без прокси перед приложением эти заголовки может подставить кто угодно — не публикуйте
- * Node-сервер в интернет напрямую.
+ * IP посетителя — последний адрес в X-Forwarded-For: его дописывает наш nginx. Всё, что левее,
+ * и X-Real-IP, если прокси его не перезаписывает (так работает обратный прокси ISPmanager),
+ * может прислать сам посетитель. Не публикуйте Node-сервер в интернет напрямую.
  */
 function clientIp(headers: Headers) {
-  const realIp = headers.get('x-real-ip');
-  if (realIp) return realIp.trim();
-  const forwarded = headers.get('x-forwarded-for');
-  if (forwarded) return forwarded.split(',')[0].trim();
-  return 'unknown';
+  const forwarded = (headers.get('x-forwarded-for') ?? '')
+    .split(',')
+    .map((part) => part.trim())
+    .filter(Boolean);
+  if (forwarded.length > 0) return forwarded[forwarded.length - 1];
+  return headers.get('x-real-ip')?.trim() || 'unknown';
 }
 
 function sameOrigin(request: Request) {
