@@ -131,7 +131,7 @@ git clone git@github.com:denny7437/24trust.git /opt/trustguard-site   # для �
 cd /opt/trustguard-site
 cp .env.example .env            # заполнить, обязательно NEXT_PUBLIC_SITE_URL=https://ваш-домен
 mkdir -p data && chown 1001:1001 data && chmod 700 data   # пользователь внутри контейнера — uid 1001
-docker compose up -d --build    # приложение слушает 127.0.0.1:3000
+docker compose up -d --build    # приложение слушает 127.0.0.1:3000 (другой порт — SITE_PORT в .env)
 ```
 
 Обновление: `git pull --ff-only && docker compose up -d --build`. Образ собирается через `npm run build`, поэтому с заглушками сборка остановится (см. «Запуск»). Черновик для проверки: `ALLOW_PLACEHOLDERS=1 docker compose up -d --build`. Для боевого сайта переменную не задавайте.
