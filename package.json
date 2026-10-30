@@ -1,0 +1,37 @@
+{
+  "name": "trustguard-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Сайт TrustGuard AI — посадочная страница с формой заявки на пилот, политика и согласие на обработку ПДн",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "node scripts/check-placeholders.mjs",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "next typegen && tsc --noEmit",
+    "check:placeholders": "node scripts/check-placeholders.mjs",
+    "leads:csv": "node scripts/leads-to-csv.mjs",
+    "leads:purge": "node scripts/leads-purge.mjs"
+  },
+  "dependencies": {
+    "@fontsource/onest": "^5.0.0",
+    "@fontsource/unbounded": "^5.0.0",
+    "next": "^16.0.0",
+    "nodemailer": "^7.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

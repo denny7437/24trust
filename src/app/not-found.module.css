@@ -1,0 +1,54 @@
+.wrap {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: var(--page-pad);
+}
+
+.wrap:focus {
+  outline: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: min(520px, 100%);
+  padding: clamp(28px, 6vw, 56px);
+  border-radius: var(--radius-section);
+  background: var(--surface);
+  text-align: center;
+}
+
+.logoLink {
+  display: flex;
+  color: var(--ink);
+}
+
+.logoLink:hover {
+  color: var(--ink);
+}
+
+.logo {
+  width: 200px;
+}
+
+.code {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(72px, 16vw, 120px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(160deg, #c9bdff 0%, #7b5cff 50%, #3a1fb0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.25;
+}

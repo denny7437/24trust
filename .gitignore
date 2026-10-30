@@ -1,0 +1,21 @@
+# зависимости
+/node_modules
+
+# сборка Next.js
+/.next/
+/out/
+/build
+next-env.d.ts
+*.tsbuildinfo
+
+# заявки с персональными данными — никогда не коммитить
+/data/
+
+# окружение
+.env
+.env.*
+!.env.example
+
+# системное
+.DS_Store
+npm-debug.log*

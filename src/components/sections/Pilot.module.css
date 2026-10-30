@@ -1,0 +1,260 @@
+.pilot {
+  position: relative;
+  overflow: hidden;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  grid-template-areas:
+    'intro orbs'
+    'title orbs'
+    'lead orbs';
+  gap: 14px 24px;
+  align-items: start;
+}
+
+.intro {
+  grid-area: intro;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.title {
+  grid-area: title;
+}
+
+.lead {
+  grid-area: lead;
+  max-width: 64ch;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+/* Объёмные шары справа */
+.orbs {
+  grid-area: orbs;
+  align-self: center;
+  position: relative;
+  width: 180px;
+  height: 160px;
+}
+
+.orb {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+}
+
+.orbBig {
+  left: 34px;
+  top: 18px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 34% 28%, #ffffff 0%, #d9d2ff 20%, #7b5cff 60%, #3a1fb0 100%);
+  box-shadow: 0 26px 40px -18px rgba(58, 31, 176, 0.55);
+}
+
+.orbMid {
+  left: 0;
+  top: 100px;
+  width: 46px;
+  height: 46px;
+  background: radial-gradient(circle at 34% 28%, #ffffff 0%, #e2dbff 26%, #9c86ff 66%, #5a3bf0 100%);
+  box-shadow: 0 14px 22px -10px rgba(58, 31, 176, 0.5);
+}
+
+.orbSmall {
+  left: 146px;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 34% 28%, #ffffff 0%, #e2dbff 30%, #9c86ff 70%, #5a3bf0 100%);
+}
+
+/* Шаги пилота */
+.steps {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  gap: 16px;
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.num {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.numLast {
+  background: var(--ink);
+}
+
+.line {
+  flex: 1 1 auto;
+  display: block;
+  width: 2px;
+  min-height: 18px;
+  background: var(--accent-soft);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 8px 0 22px;
+}
+
+.bodyLast {
+  padding-bottom: 4px;
+}
+
+.stepTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.stepText {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.terms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: var(--surface-2);
+}
+
+.termsText {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+@media (max-width: 639px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr) 72px;
+    grid-template-areas:
+      'intro orbs'
+      'title title'
+      'lead lead';
+    gap: 12px;
+  }
+
+  .intro {
+    gap: 12px;
+  }
+
+  .badge {
+    gap: 9px;
+    padding: 8px 12px;
+    border-radius: 14px;
+  }
+
+  .orbs {
+    align-self: start;
+    width: 72px;
+    height: 70px;
+  }
+
+  .orbBig {
+    left: 14px;
+    top: 6px;
+    width: 52px;
+    height: 52px;
+    box-shadow: 0 14px 22px -10px rgba(58, 31, 176, 0.55);
+  }
+
+  .orbMid {
+    top: 44px;
+    width: 22px;
+    height: 22px;
+    box-shadow: none;
+  }
+
+  .orbSmall {
+    left: 60px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .step {
+    gap: 14px;
+  }
+
+  .num {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .line {
+    min-height: 14px;
+  }
+
+  .body {
+    gap: 4px;
+    padding: 6px 0 18px;
+  }
+
+  .bodyLast {
+    padding-bottom: 2px;
+  }
+
+  .stepText {
+    line-height: 1.5;
+  }
+
+  .terms {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .termsText {
+    line-height: 1.5;
+  }
+}

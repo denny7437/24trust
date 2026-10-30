@@ -1,0 +1,90 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  margin: 0 -20px;
+  padding: 2px 20px 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 20px;
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track:focus-visible {
+  outline-offset: -3px;
+}
+
+.track > * {
+  flex: 0 0 80%;
+  scroll-snap-align: start;
+}
+
+.audience > * {
+  flex-basis: 78%;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.dot::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--line-2);
+  transition:
+    width 0.25s var(--ease-out),
+    background-color 0.25s ease;
+}
+
+.dotActive::before {
+  width: 18px;
+  background: var(--accent);
+}
+
+@media (min-width: 640px) {
+  .track {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .verdicts {
+    grid-template-columns: repeat(auto-fit, minmax(min(186px, 100%), 1fr));
+  }
+
+  .audience {
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  }
+
+  .dots {
+    display: none;
+  }
+}

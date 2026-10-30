@@ -1,0 +1,333 @@
+/* --- Схема для экранов от 768 px ----------------------------------------- */
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+}
+
+.diagramWrap {
+  padding: 4px 0;
+}
+
+.diagram {
+  display: block;
+  width: 100%;
+  max-width: 628px;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+  font-family: var(--font-body);
+}
+
+.band {
+  fill: var(--bg);
+  stroke: var(--line-accent);
+  stroke-width: 1.5;
+}
+
+.bandTitle {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--accent-ink);
+}
+
+.box {
+  fill: var(--surface);
+  stroke: var(--line-2);
+  stroke-width: 1;
+}
+
+.boxAccent {
+  stroke: var(--line-accent);
+}
+
+.boxText {
+  font-size: 12px;
+  fill: var(--muted);
+}
+
+.boxTitle {
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--ink);
+}
+
+.label {
+  font-size: 12px;
+  fill: var(--muted);
+}
+
+.arrows path {
+  fill: none;
+  stroke: var(--diagram-line);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 6 5;
+  animation: flow 1.2s linear infinite;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -22;
+  }
+}
+
+.caption {
+  max-width: 70ch;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* --- Вертикальный путь для телефона -------------------------------------- */
+
+.mobileFlow {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .figure {
+    display: none;
+  }
+
+  .mobileFlow {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.path {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pathItem {
+  display: flex;
+  gap: 14px;
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink-2);
+}
+
+.node svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nodeCheck {
+  background: var(--accent);
+  color: #fff;
+  animation: node-pulse 2.2s ease-out infinite;
+}
+
+@keyframes node-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(107, 78, 255, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(107, 78, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(107, 78, 255, 0);
+  }
+}
+
+.line {
+  flex: 1 1 auto;
+  display: block;
+  width: 2px;
+  min-height: 14px;
+  background: var(--line-2);
+}
+
+.pathBody {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  padding: 8px 0 16px;
+}
+
+.checkCard {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-accent);
+  border-radius: 14px;
+  background: var(--bg);
+}
+
+.pathItem:last-child .pathBody {
+  padding-bottom: 4px;
+}
+
+.checkBrand {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+
+.pathTitle {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.pathText {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.matrixNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border: 1.5px dashed var(--line-accent);
+  border-radius: 18px;
+}
+
+.matrixBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+/* --- Четыре шага ---------------------------------------------------------- */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  border-radius: var(--radius-tile);
+  background: var(--surface-2);
+}
+
+.stepNum {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.35s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .step:hover .stepNum {
+    transform: rotate(-8deg) scale(1.08);
+  }
+}
+
+.stepBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.stepTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.stepText {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.log {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+.logText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+@media (max-width: 639px) {
+  .steps {
+    gap: 10px;
+  }
+
+  .step {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .stepNum {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .stepBody {
+    gap: 4px;
+  }
+
+  .stepText {
+    line-height: 1.5;
+  }
+
+  .log {
+    align-items: flex-start;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .logText {
+    line-height: 1.55;
+  }
+}

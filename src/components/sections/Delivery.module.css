@@ -1,0 +1,254 @@
+/* --- Таблица (от 768 px) -------------------------------------------------- */
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+}
+
+.table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.corner {
+  width: 24%;
+  padding: 20px;
+  background: var(--surface-2);
+}
+
+.colHead {
+  padding: 20px;
+  text-align: left;
+  vertical-align: bottom;
+  background: var(--surface-2);
+}
+
+.colHeadPrimary {
+  background: var(--tint-2);
+}
+
+.colHeadInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.badgePrimary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.colName {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.rowHead {
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cell {
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+  color: var(--text);
+}
+
+.cellPrimary {
+  background: var(--surface-3);
+  color: var(--ink-2);
+}
+
+.cellStrong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.row > * {
+  transition: background-color 0.18s ease;
+}
+
+.row:hover > * {
+  background-color: var(--bg);
+}
+
+/* --- Переключатель (до 768 px) ------------------------------------------- */
+
+.tabs {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .tableWrap {
+    display: none;
+  }
+
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+.tabList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--bg);
+}
+
+.tab {
+  min-height: 44px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.25;
+  font-weight: 500;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.tabActive {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  animation: panel-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panelPrimary {
+  border-color: var(--line-accent);
+  background: var(--surface-3);
+}
+
+.panelHead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.fact:last-child {
+  padding-bottom: 0;
+}
+
+.factLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.factValue {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Под таблицей --------------------------------------------------------- */
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.note {
+  flex: 1 1 320px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+@media (max-width: 639px) {
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .note {
+    flex: none;
+    line-height: 1.55;
+  }
+}

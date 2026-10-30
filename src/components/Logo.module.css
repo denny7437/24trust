@@ -1,0 +1,20 @@
+.logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.shield {
+  stroke: var(--accent);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.shieldDark {
+  stroke: var(--on-dark-logo);
+}
+
+/* Щит «опускается» при наведении на ссылку с логотипом */
+:global(.logo-link):hover .shield {
+  transform: translateY(4px);
+}

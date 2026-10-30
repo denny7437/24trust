@@ -1,0 +1,198 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 10px var(--page-pad);
+  background: rgba(243, 241, 253, 0.94);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+@media (min-width: 1024px) {
+  .header {
+    display: none;
+  }
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.logoLink:hover {
+  color: var(--ink);
+}
+
+/* 150 px на 390 px и шире, не меньше 104 px на 320 px — чтобы кнопка и меню помещались */
+.logo {
+  width: clamp(104px, calc(100vw - 236px), 150px);
+}
+
+.actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actions .cta {
+  white-space: nowrap;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.iconButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Меню на весь экран */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--surface);
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    display: none;
+  }
+}
+
+.menuTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px var(--page-pad);
+}
+
+.close {
+  background: var(--bg);
+  animation: spin-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4px 20px 24px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 50px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  animation: slide-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  transition:
+    color 0.18s ease,
+    padding-left 0.18s ease;
+}
+
+.link:last-child {
+  border-bottom: 0;
+}
+
+.link:hover,
+.link:active {
+  color: var(--accent-link);
+  padding-left: 6px;
+}
+
+.num {
+  min-width: 24px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: auto;
+  padding: 18px max(20px, calc((100vw - 720px) / 2)) 22px;
+  border-radius: 24px 24px 0 0;
+  background: var(--bg);
+  animation: sheet-up 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+}
+
+.sheetNote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.sheetFoot {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes spin-in {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

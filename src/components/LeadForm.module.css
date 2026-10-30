@@ -1,0 +1,368 @@
+/* Контейнер формы: правая колонка на широком экране, отдельный блок — на узком */
+.panel {
+  padding: 26px;
+  border-radius: 28px;
+  background: var(--surface);
+  scroll-margin-top: 20px;
+}
+
+@media (max-width: 1279px) {
+  .panel {
+    padding: var(--section-pad);
+    border: 2px solid var(--accent-soft);
+    border-radius: var(--radius-section);
+  }
+}
+
+@media (max-width: 1023px) {
+  .panel {
+    scroll-margin-top: 76px;
+  }
+}
+
+.highlight {
+  animation: ring 1.4s ease-out;
+}
+
+@keyframes ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(107, 78, 255, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 18px rgba(107, 78, 255, 0);
+  }
+}
+
+/* Форма */
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mainFields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-input);
+  background: var(--surface-3);
+  font-size: 15px;
+  color: var(--ink);
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.input::placeholder {
+  color: #8f89ad;
+}
+
+.input:hover {
+  border-color: var(--accent-border-hover);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(107, 78, 255, 0.16);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--error);
+}
+
+.input[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 4px rgba(194, 38, 75, 0.14);
+}
+
+.select {
+  padding-right: 40px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235C5680' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+
+.textarea {
+  min-height: 92px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.counter {
+  align-self: flex-end;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--error);
+}
+
+.error svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  margin-top: 1px;
+}
+
+.details {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.summary:hover {
+  color: var(--accent-link);
+}
+
+.summaryText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 8px 0;
+}
+
+.summaryHint {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.chevron {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.details[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.detailsBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0 14px;
+}
+
+.trap {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.consentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.checkbox {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.checkbox[aria-invalid='true'] {
+  outline: 2px solid var(--error);
+  outline-offset: 2px;
+}
+
+.note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fdf0f3;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8a1532;
+}
+
+.alert svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 8px 0 4px;
+  animation: appear 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.successIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--tint-2);
+  color: var(--accent);
+}
+
+.successIcon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.successText {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.successText:focus {
+  outline: none;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Форма в потоке страницы: крупнее поля (16 px — без автозума на iOS) */
+@media (max-width: 1279px) {
+  .title {
+    font-size: 21px;
+    line-height: 1.22;
+  }
+
+  .sub {
+    font-size: 15px;
+  }
+
+  .input {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .summary {
+    min-height: 48px;
+    font-size: 15px;
+  }
+
+  .consent {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* На планшете и в двухколоночном режиме основные поля — в две колонки */
+@media (min-width: 640px) and (max-width: 1279px) {
+  .root {
+    max-width: 760px;
+  }
+
+  .mainFields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+  }
+}

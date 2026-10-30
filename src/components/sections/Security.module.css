@@ -1,0 +1,173 @@
+.contourRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.contour {
+  flex: 1 1 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  padding: 20px;
+  border: 1.5px dashed var(--dark-dash);
+  border-radius: var(--radius-card);
+}
+
+.contourLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--on-dark-accent);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--dark-line);
+  border-radius: 12px;
+  background: var(--dark-2);
+  color: #fff;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.chip svg {
+  width: 16px;
+  height: 16px;
+  color: var(--on-dark-accent);
+}
+
+@media (hover: hover) {
+  .chip:hover {
+    border-color: var(--dark-dash);
+    transform: translateY(-1px);
+  }
+}
+
+.notes {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.noteLine {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--on-dark-2);
+}
+
+.noteLine svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  color: var(--on-dark-accent);
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: 24px 28px;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.itemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.itemTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.itemText {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--on-dark-3);
+}
+
+@media (max-width: 639px) {
+  .contourRow {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border: 1.5px dashed var(--dark-dash);
+    border-radius: 20px;
+  }
+
+  .contour {
+    flex: none;
+    gap: 12px;
+    padding: 0;
+    border: 0;
+  }
+
+  .contourLabel {
+    font-size: 11px;
+  }
+
+  .chip {
+    gap: 7px;
+    min-height: 38px;
+    padding: 0 12px;
+  }
+
+  .notes {
+    flex: none;
+    gap: 10px;
+  }
+
+  .noteLine {
+    gap: 10px;
+    line-height: 1.45;
+  }
+
+  .noteLine svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .items {
+    gap: 18px;
+  }
+
+  .itemBody {
+    gap: 4px;
+  }
+
+  .itemText {
+    line-height: 1.5;
+  }
+}
